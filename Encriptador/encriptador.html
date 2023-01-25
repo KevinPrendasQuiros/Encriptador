@@ -10,12 +10,36 @@
 
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
-
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400&display=swap" rel="stylesheet">
 
     </head>
 
     <body>
-       
+        <header>
+
+        </header>
+        <main>
+            <section>
+                <label for="mensaje"></label>
+                <textarea cols="70" rows="10" id="mensaje" class="input-padron" placeholder="Ingrese el texto aquí" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
+            </section>
+            
+            <section class="zonaBotones">
+                <button type="button" class="botonAzul">Encriptar</button>
+                <button type="button" class="botonGris">Desencriptar</button>
+            </section>
+    
+            <section class="rectangulo">
+    
+            </section>
+        </main>
+
+        <footer class="autor">
+            <p>Autor: Kevin Prendas Quirós - Sprint 01 Alura - 2023</p>
+        </footer>
+
     </body>
 
 
