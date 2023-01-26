@@ -5,10 +5,35 @@ body{
     min-height: 100vh;
 }
 
+.zonaLogo{
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 40px;
+
+    position: absolute;
+    width: 120px;
+    height: 48px;
+    left: 40px;
+    top: 40px;
+}
+
+.logoPrincipal{
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
 .input-padron{
     position: absolute;
     width: 577px;
     height: 48px;
+    max-height: 300px;
     left: 240px;
     top: 168px;
     resize:none;
@@ -26,6 +51,28 @@ body{
 
 .input-padron::placeholder{
     color: #0A3871;
+}
+
+.zonaIndicaciones{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+
+    position: absolute;
+    width: 300px;
+    height: 18px;
+    left: 240px;
+    top: 480px;
+}
+
+.indicaciones{
+    color: #868E96;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
 }
 
 .zonaBotones{
@@ -150,6 +197,86 @@ body{
 
     box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
     border-radius: 32px;
+}
+
+#imagenRectangulo{
+    position: absolute;
+    width: 268px;
+    height: 243px;
+    left: 10%;
+    top: 20%;
+}
+
+.zonaTextorectangulo{
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+
+    position: absolute;
+    width: 250px;
+    height: 122px;
+    left: 15%;
+    top: 70%;
+}
+
+.tituloPrincipal{
+    /* Ningún mensaje fue encontrado */
+    width: 250px;
+    height: 58px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 120%;
+    /* or 29px */
+
+    text-align: center;
+
+    /* Gray/gray-500 */
+
+    color: #343A40;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.tituloSecundario{
+    /* Ingresa el texto que desees encriptar o desencriptar. */
+
+
+    width: 250px;
+    height: 48px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    /* or 24px */
+
+    text-align: center;
+
+    /* Gray/gray-400 */
+
+    color: #495057;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
 }
 
 .autor{

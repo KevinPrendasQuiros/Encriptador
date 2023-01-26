@@ -21,10 +21,18 @@
 
         </header>
         <main>
+            <div class="zonaLogo">
+                <img src="imagenes/Vector_a.png" class="logoPrincipal">
+            </div>
+
             <section>
                 <label for="mensaje"></label>
                 <textarea cols="70" rows="10" id="mensaje" class="input-padron" placeholder="Ingrese el texto aquí" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
             </section>
+
+            <div class="zonaIndicaciones">
+                <p class="indicaciones">&#9432 Solo letras minúsculas y sin acentos</p>
+            </div>
             
             <section class="zonaBotones">
                 <button type="button" class="botonAzul">Encriptar</button>
@@ -32,13 +40,20 @@
             </section>
     
             <section class="rectangulo">
-    
+                <div>
+                    <img src="imagenes/Vector_Muñeco.png" id="imagenRectangulo">
+                    <div class="zonaTextorectangulo">
+                        <p class="tituloPrincipal">Ningun mensaje fue encontrado</p>
+                        <p class="tituloSecundario">Ingresa el texto que desees encriptar o desencriptar</p>
+                    </div>
+
+                </div>
             </section>
         </main>
-
+<!--
         <footer class="autor">
             <p>Autor: Kevin Prendas Quirós - Sprint 01 Alura - 2023</p>
-        </footer>
+        </footer>-->
 
     </body>
 
