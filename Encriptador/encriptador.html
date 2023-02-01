@@ -58,7 +58,6 @@
         </footer>-->
 
         <script>
-            var hideDisplay = true
             
             function codificar(){
                 var texto = document.getElementById('mensaje').value;
@@ -87,16 +86,15 @@
                 var mensajeInicial = codificar();
                 var x = document.getElementById('hide');
                 var y = document.getElementById('zonaTransformacion');
-                
-                if (hideDisplay){
+                var hayMensaje = document.getElementById('mensaje').value;
+
+                if (hayMensaje != ''){
                     x.style.display = 'block';
                     x.textContent = mensajeInicial;
                     y.style.visibility = 'hidden';
-                    hideDisplay = false;
                 }else{
                     x.style.display = 'none';
                     y.style.visibility = 'visible';
-                    hideDisplay = true;
                 }
 
             }
@@ -135,16 +133,15 @@
                 var mensajeFinal = descodificar();
                 var x = document.getElementById('hide');
                 var y = document.getElementById('zonaTransformacion');
-                
-                if (hideDisplay){
+                var hayMensaje = document.getElementById('mensaje').value;
+
+                if (hayMensaje != ''){
                     x.style.display = 'block';
                     x.textContent = mensajeFinal;
                     y.style.visibility = 'hidden';
-                    hideDisplay = false;
                 }else{
                     x.style.display = 'none';
                     y.style.visibility = 'visible';
-                    hideDisplay = true;
                 }
 
             }
@@ -152,7 +149,7 @@
             function botonCopiar(){
 
                 var copiarTexto = document.createRange();
-                
+
                 copiarTexto.selectNode(document.getElementById('hide'));
                 window.getSelection().removeAllRanges();
                 window.getSelection().addRange(copiarTexto);
