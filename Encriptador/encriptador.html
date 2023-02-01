@@ -35,19 +35,21 @@
             </div>
             
             <section class="zonaBotones">
-                <button type="button" class="botonAzul">Encriptar</button>
-                <button type="button" class="botonGris">Desencriptar</button>
+                <button type="button" onclick="encriptar()" class="botonAzul">Encriptar</button>
+                <button type="button" onclick="desencriptar()" class="botonGris">Desencriptar</button>
             </section>
     
             <section class="rectangulo">
-                <div>
+                <div id="zonaTransformacion">
                     <img src="imagenes/Vector_Muñeco.png" id="imagenRectangulo">
                     <div class="zonaTextorectangulo">
                         <p class="tituloPrincipal">Ningun mensaje fue encontrado</p>
                         <p class="tituloSecundario">Ingresa el texto que desees encriptar o desencriptar</p>
                     </div>
-
                 </div>
+                <div id="hide">
+                </div>
+                <button onclick="botonCopiar()" type="button" class="botonGriscopiar">Copiar</button>
             </section>
         </main>
 <!--
@@ -55,7 +57,109 @@
             <p>Autor: Kevin Prendas Quirós - Sprint 01 Alura - 2023</p>
         </footer>-->
 
+        <script>
+            var hideDisplay = true
+            
+            function codificar(){
+                var texto = document.getElementById('mensaje').value;
+                var codificado = '';
+                
+                for(contador = 0; contador < texto.length; contador++){
+
+                    if(texto[contador] == 'a'){
+                        codificado = codificado + 'ai';
+                    }else if(texto[contador] == 'e'){
+                        codificado = codificado + 'enter';
+                    }else if(texto[contador] == 'i'){
+                        codificado = codificado + 'imes';
+                    }else if(texto[contador] == 'o'){
+                        codificado = codificado + 'ober';
+                    }else if(texto[contador] == 'u'){
+                        codificado = codificado + 'ufat';
+                    }else{
+                        codificado = codificado + texto[contador];
+                    }
+                }
+                return codificado;
+            }
+
+            function encriptar(){
+                var mensajeInicial = codificar();
+                var x = document.getElementById('hide');
+                var y = document.getElementById('zonaTransformacion');
+                
+                if (hideDisplay){
+                    x.style.display = 'block';
+                    x.textContent = mensajeInicial;
+                    y.style.visibility = 'hidden';
+                    hideDisplay = false;
+                }else{
+                    x.style.display = 'none';
+                    y.style.visibility = 'visible';
+                    hideDisplay = true;
+                }
+
+            }
+
+            function descodificar(){
+                var texto = document.getElementById('mensaje').value;
+                var descodificado = '';
+                
+                while(texto != ''){
+
+                    if(texto.slice(0,'ai'.length) == 'ai'){
+                        descodificado = descodificado + 'a';
+                        texto = texto.slice('ai'.length);
+                    }else if(texto.slice(0,'enter'.length) == 'enter'){
+                        descodificado = descodificado + 'e';
+                        texto = texto.slice('enter'.length);
+                    }else if(texto.slice(0,'imes'.length) == 'imes'){
+                        descodificado = descodificado + 'i';
+                        texto = texto.slice('imes'.length);
+                    }else if(texto.slice(0,'ober'.length) == 'ober'){
+                        descodificado = descodificado + 'o';
+                        texto = texto.slice('ober'.length);
+                    }else if(texto.slice(0,'ufat'.length) == 'ufat'){
+                        descodificado = descodificado + 'u';
+                        texto = texto.slice('ufat'.length);
+                    }
+                    else{
+                        descodificado = descodificado + texto.slice(0,1);
+                        texto = texto.slice(1);
+                    }
+                }
+                return descodificado;
+            }
+
+            function desencriptar(){
+                var mensajeFinal = descodificar();
+                var x = document.getElementById('hide');
+                var y = document.getElementById('zonaTransformacion');
+                
+                if (hideDisplay){
+                    x.style.display = 'block';
+                    x.textContent = mensajeFinal;
+                    y.style.visibility = 'hidden';
+                    hideDisplay = false;
+                }else{
+                    x.style.display = 'none';
+                    y.style.visibility = 'visible';
+                    hideDisplay = true;
+                }
+
+            }
+
+            function botonCopiar(){
+
+                var copiarTexto = document.createRange();
+                
+                copiarTexto.selectNode(document.getElementById('hide'));
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(copiarTexto);
+                document.execCommand('copy');
+                window.getSelection().removeAllRanges();
+            }
+
+        </script>
     </body>
-
-
 </html>
