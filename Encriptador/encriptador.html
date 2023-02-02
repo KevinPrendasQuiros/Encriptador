@@ -49,7 +49,7 @@
                 </div>
                 <div id="hide">
                 </div>
-                <button onclick="botonCopiar()" type="button" class="botonGriscopiar">Copiar</button>
+                <button onclick="botonCopiar()" type="button" id="botonGriscopiar">Copiar</button>
             </section>
         </main>
 <!--
@@ -86,14 +86,19 @@
                 var mensajeInicial = codificar();
                 var x = document.getElementById('hide');
                 var y = document.getElementById('zonaTransformacion');
+                var z = document.getElementById('botonGriscopiar');
                 var hayMensaje = document.getElementById('mensaje').value;
 
                 if (hayMensaje != ''){
                     x.style.display = 'block';
+                    z.style.display = 'block';
                     x.textContent = mensajeInicial;
                     y.style.visibility = 'hidden';
+                    borrar();
+
                 }else{
                     x.style.display = 'none';
+                    z.style.display = 'none';
                     y.style.visibility = 'visible';
                 }
 
@@ -133,14 +138,18 @@
                 var mensajeFinal = descodificar();
                 var x = document.getElementById('hide');
                 var y = document.getElementById('zonaTransformacion');
+                var z = document.getElementById('botonGriscopiar');
                 var hayMensaje = document.getElementById('mensaje').value;
 
                 if (hayMensaje != ''){
                     x.style.display = 'block';
+                    z.style.display = 'block';
                     x.textContent = mensajeFinal;
                     y.style.visibility = 'hidden';
+                    borrar();
                 }else{
                     x.style.display = 'none';
+                    z.style.display = 'none';
                     y.style.visibility = 'visible';
                 }
 
@@ -155,6 +164,10 @@
                 window.getSelection().addRange(copiarTexto);
                 document.execCommand('copy');
                 window.getSelection().removeAllRanges();
+            }
+
+            function borrar(){
+                document.getElementById('mensaje').value = ''
             }
 
         </script>
